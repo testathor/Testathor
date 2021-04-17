@@ -191,7 +191,8 @@ export class GithubService {
   }
 
   fetchAllLabels(): Observable<Array<{}>> {
-    return from(octokit.issues.listLabelsForRepo({owner: ORG_NAME, repo: REPO, headers: GithubService.IF_NONE_MATCH_EMPTY})).pipe(
+    return from(octokit.issues.listLabelsForRepo({owner: ORG_NAME, repo: REPO, per_page: 100,
+      headers: GithubService.IF_NONE_MATCH_EMPTY})).pipe(
       map(response => {
         return response['data'];
       }),
