@@ -44,6 +44,8 @@ export class Issue {
   testerResponses?: TesterResponse[];
   issueComment?: IssueComment; // Issue comment is used for Tutor Response and Tester Response
   issueDisputes?: IssueDispute[];
+  teamResponseSeverity?: string;
+  teamResponseType?: string;
 
   /**
    * Formats the text to create space at the end of the user input to prevent any issues with
@@ -113,6 +115,9 @@ export class Issue {
     this.duplicated = !!githubIssue.findLabel(GithubLabel.LABELS.duplicated, false);
     this.status = githubIssue.findLabel(GithubLabel.LABELS.status);
     this.pending = githubIssue.findLabel(GithubLabel.LABELS.pending);
+
+    this.teamResponseSeverity = null;
+    this.teamResponseType = null;
   }
 
   public static createPhaseBugReportingIssue(githubIssue: GithubIssue): Issue {
@@ -130,6 +135,7 @@ export class Issue {
     issue.duplicateOf = template.duplicateOf !== undefined ? template.duplicateOf.issueNumber : undefined;
     issue.duplicated = issue.duplicateOf !== undefined && issue.duplicateOf !== null;
     issue.assignees = githubIssue.assignees.map(assignee => assignee.login);
+
     return issue;
   }
 
@@ -141,6 +147,10 @@ export class Issue {
     issue.issueComment = template.comment;
     issue.teamResponse = template.teamResponse !== undefined ? Issue.updateTeamResponse(template.teamResponse.content) : undefined;
     issue.testerResponses = template.testerResponse !== undefined ? template.testerResponse.testerResponses : undefined;
+
+    issue.teamResponseSeverity = template.teamResponseSeverity || null;
+    issue.teamResponseType = template.teamResponseType || null;
+
     return issue;
   }
 

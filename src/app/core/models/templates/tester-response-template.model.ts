@@ -3,6 +3,7 @@ import { TesterResponseSection } from './sections/test-response-section.model';
 import { Section } from './sections/section.model';
 import { GithubComment } from '../github/github-comment.model';
 import { IssueComment } from '../comment.model';
+import { ParserService } from '../../services/parser.service';
 
 
 export const TesterResponseHeaders = {
@@ -14,6 +15,8 @@ export class TesterResponseTemplate extends Template {
   teamResponse: Section;
   testerResponse: TesterResponseSection;
   comment: IssueComment;
+  teamResponseSeverity: string;
+  teamResponseType: string;
 
   constructor(githubIssueComments: GithubComment[]) {
     super(Object.values(TesterResponseHeaders));
@@ -26,6 +29,9 @@ export class TesterResponseTemplate extends Template {
       };
       this.teamResponse = this.parseTeamResponse(this.comment.description);
       this.testerResponse = this.parseTesterResponse(this.comment.description);
+      this.teamResponseSeverity = this.parseteamResponseSeverity(this.comment.description);
+      this.teamResponseType = this.parseteamResponseType(this.comment.description);
+
     }
   }
 
@@ -35,5 +41,13 @@ export class TesterResponseTemplate extends Template {
 
   parseTesterResponse(toParse: string): TesterResponseSection {
     return new TesterResponseSection(this.getSectionalDependency(TesterResponseHeaders.testerResponses), toParse);
+  }
+
+  parseteamResponseSeverity(toParse: string): string {
+    return ParserService.parseGitHubCommentTeamResponseSeverity(toParse);
+  }
+
+  parseteamResponseType(toParse: string): string {
+    return ParserService.parseGitHubCommentTeamResponseType(toParse);
   }
 }

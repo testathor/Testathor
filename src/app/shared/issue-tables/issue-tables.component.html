@@ -29,6 +29,12 @@
           <span (click)="$event.stopPropagation()" [ngStyle]="this.labelService.setLabelStyle(this.labelService.getColorOfLabel(issue.type))">
               {{issue.type || '-'}}
           </span>
+          <span *ngIf="issue.teamResponseType && issue.teamResponseType != issue.type" (click)="$event.stopPropagation()" style="display: inline; vertical-align:middle;">
+            <mat-icon>arrow_right_alt</mat-icon>
+          </span>
+          <span *ngIf="issue.teamResponseType && issue.teamResponseType != issue.type" (click)="$event.stopPropagation()" [ngStyle]="this.labelService.setLabelStyle(this.labelService.getColorOfLabel(issue.teamResponseType))">
+            {{issue.teamResponseType}}
+          </span>
     </td>
   </ng-container>
 
@@ -36,9 +42,15 @@
   <ng-container matColumnDef="severity">
     <th mat-header-cell [style.width]="permissions.isTeamResponseEditable() ? '9%' : '12%'" *matHeaderCellDef mat-sort-header> Severity </th>
     <td mat-cell *matCellDef="let issue">
-        <span (click)="$event.stopPropagation()" [ngStyle]="this.labelService.setLabelStyle(this.labelService.getColorOfLabel(issue.severity))">
-          {{issue.severity || '-'}}
-        </span>
+      <span (click)="$event.stopPropagation()" [ngStyle]="this.labelService.setLabelStyle(this.labelService.getColorOfLabel(issue.severity))">
+        {{issue.severity || '-'}}
+      </span>
+      <span *ngIf="issue.teamResponseSeverity && issue.teamResponseSeverity != issue.severity" (click)="$event.stopPropagation()" style="display: inline; vertical-align:middle;">
+        <mat-icon>arrow_right_alt</mat-icon>
+      </span>
+      <span *ngIf="issue.teamResponseSeverity && issue.teamResponseSeverity != issue.severity" (click)="$event.stopPropagation()" [ngStyle]="this.labelService.setLabelStyle(this.labelService.getColorOfLabel(issue.teamResponseSeverity))">
+        {{issue.teamResponseSeverity}}
+      </span>
     </td>
   </ng-container>
 
