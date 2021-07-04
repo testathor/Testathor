@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
               public auth: AuthService,
               public phaseService: PhaseService,
               public userService: UserService,
-              private loggingService: LoggingService,
+              public loggingService: LoggingService,
               private location: Location,
               private githubEventService: GithubEventService,
               private issueService: IssueService,
