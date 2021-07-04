@@ -5,6 +5,8 @@
 
 <mat-menu #labelList>
   <button mat-menu-item *ngFor="let value of labelValues;" (click)="updateLabel(value.labelValue)"
+          matTooltip="{{displayLabelDefinition(value)}}"
+          matTooltipClass="labelTooltip"
           [disabled]="value.labelValue === this.issue[attributeName]">
         <mat-icon [ngStyle]="{'color': '#' + value.labelColor, 'font-size' : '1.8em'}">stop</mat-icon>
         <span> {{value.labelValue}}</span>

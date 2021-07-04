@@ -67,12 +67,14 @@ describe('LabelService: parseLabelData()', () => {
     expect(labelList[1].labelCategory).toBe(LabelConstant.SEVERITY);
     expect(labelList[1].labelValue).toBe(LabelConstant.SEVERITY_LOW);
     expect(labelList[1].labelColor).toBe(LabelConstant.COLOR_SEVERITY_LOW);
+    expect(labelList[1].labelDefinition).toBe(LabelConstant.DEFINITION_SEVERITY_LOW);
   });
 
   it('should be type.FunctionalityBug', () => {
     expect(labelList[2].labelCategory).toBe(LabelConstant.TYPE);
     expect(labelList[2].labelValue).toBe(LabelConstant.TYPE_FUNCTIONALITY_BUG);
     expect(labelList[2].labelColor).toBe(LabelConstant.COLOR_TYPE_FUNCTIONALITY_BUG);
+    expect(labelList[2].labelDefinition).toBe(LabelConstant.DEFINITION_FUNCTIONALITY_BUG);
   });
 });
 
@@ -127,6 +129,38 @@ describe('LabelService: getColorOfLabel()', () => {
 
   it('should be white color for invalid inputs', () => {
     expect(labelService.getColorOfLabel(null)).toEqual(LabelConstant.COLOR_WHITE.toLowerCase());
+  });
+});
+
+describe('LabelService: getLabelDefinition()', () => {
+  beforeEach(() => {
+    labelService = new LabelService(null);
+  });
+
+  afterEach(() => {
+    labelService = null;
+  });
+
+  it('should be correct label definition for type.FunctionalityBug', () => {
+    expect(labelService.getLabelDefinition(LabelConstant.TYPE_FUNCTIONALITY_BUG, LabelConstant.TYPE)).toEqual(
+      LabelConstant.DEFINITION_FUNCTIONALITY_BUG
+    );
+  });
+
+  it('should be correct label definition for severity.Medium', () => {
+    expect(labelService.getLabelDefinition(LabelConstant.SEVERITY_MEDIUM, LabelConstant.SEVERITY)).toEqual(
+      LabelConstant.DEFINITION_SEVERITY_MEDIUM
+    );
+  });
+
+  it('should be an empty string for label with no definition', () => {
+    expect(labelService.getLabelDefinition(LabelConstant.STATUS_DONE, LabelConstant.STATUS)).toEqual(LabelConstant.DEFINITION_EMPTY);
+  });
+
+  it('should be an empty string for invalid inputs', () => {
+    expect(labelService.getLabelDefinition(null, null)).toEqual(LabelConstant.DEFINITION_EMPTY);
+    expect(labelService.getLabelDefinition(null, LabelConstant.SEVERITY)).toEqual(LabelConstant.DEFINITION_EMPTY);
+    expect(labelService.getLabelDefinition(LabelConstant.SEVERITY_MEDIUM, null)).toEqual(LabelConstant.DEFINITION_EMPTY);
   });
 });
 

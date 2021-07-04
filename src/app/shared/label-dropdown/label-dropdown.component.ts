@@ -32,8 +32,11 @@ export class LabelDropdownComponent implements OnInit {
     this.selectedColor = this.labelService.getColorOfLabel(labelValue);
   }
 
+  setSelectedLabelTooltipMsg(label: Label) {
+    return this.labelService.getLabelDefinition(label.labelValue, label.labelCategory);
+  }
+
   get dropdownTextColor(): string {
     return this.labelService.isDarkColor(this.selectedColor) ? WHITE_TEXT_CLASS : BLACK_TEXT_CLASS;
   }
-
 }

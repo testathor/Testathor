@@ -16,6 +16,7 @@ import { PhaseService } from '../../../core/services/phase.service';
 export class LabelComponent implements OnInit, OnChanges {
   labelValues: Label[];
   labelColor: string;
+  labelDefinition?: string;
 
   @Input() issue: Issue;
   @Input() attributeName: string;
@@ -49,5 +50,10 @@ export class LabelComponent implements OnInit, OnChanges {
     }, (error) => {
       this.errorHandlingService.handleError(error);
     });
+  }
+
+  displayLabelDefinition(value: Label) {
+    this.labelDefinition = this.labelService.getLabelDefinition(value.labelValue, value.labelCategory);
+    return this.labelDefinition;
   }
 }

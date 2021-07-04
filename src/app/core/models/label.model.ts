@@ -3,11 +3,13 @@ export class Label {
   labelCategory: string;
   labelValue: string;
   labelColor: string;
+  labelDefinition?: string;
 
-  constructor(labelCategory: string, labelValue: string, labelColor: string) {
+  constructor(labelCategory: string, labelValue: string, labelColor: string, labelDefinition?: string) {
     this.labelValue = labelValue;
     this.labelColor = labelColor;
     this.labelCategory = labelCategory;
+    this.labelDefinition = labelDefinition;
   }
 
   /**
