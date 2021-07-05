@@ -1,20 +1,16 @@
-<div *ngIf="!isReady" class="centralize">
-  <mat-spinner [diameter]="47"></mat-spinner>
-</div>
-
-<div *ngIf="isReady && isAppOutdated" class="centralize">
+<div *ngIf="isAppOutdated" class="centralize">
   <span class="error-text"> You are using an outdated version of CATcher. <br/>
     Please download the latest version of CATcher <a [href]="appService.latestReleaseUrl"> here</a>.
   </span>
 </div>
 
-<div *ngIf="isReady && versionCheckingError" class="centralize">
+<div *ngIf="versionCheckingError" class="centralize">
   <span class="error-text"> Unable to verify CATcher's version. <br/>
     Please click <a href="#" (click)="checkAppIsOutdated()">here</a> to try again
   </span>
 </div>
 
-<div *ngIf="isReady && !versionCheckingError && !isAppOutdated">
+<div *ngIf="!versionCheckingError && !isAppOutdated">
   <div *ngIf="isUserNotAuthenticated()" class="login-page">
     <mat-card class="login-card">
       <mat-card-header style="margin-bottom: 20px;">

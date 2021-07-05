@@ -24,8 +24,6 @@ import { LoggingService } from '../core/services/logging.service';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit, OnDestroy {
-  // isReady is used to indicate whether the pre-processing of application is done.
-  isReady: boolean;
   // isSettingUpSession is used to indicate whether CATcher is in the midst of setting up the session.
   isSettingUpSession: boolean;
 
@@ -71,7 +69,12 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.logger.startSession();
-    this.isReady = false;
+
+    // Initialize State
+    this.isSettingUpSession = false;
+    this.isAppOutdated = false;
+    this.versionCheckingError = false;
+
     const oauthCode = this.activatedRoute.snapshot.queryParamMap.get('code');
     const state = this.activatedRoute.snapshot.queryParamMap.get('state');
 
@@ -86,7 +89,6 @@ export class AuthComponent implements OnInit, OnDestroy {
       this.logger.info('Sent authorisation code and state to main application window, waiting to close');
       this.listenForCloseOAuthWindowMessage();
     } else { // In the main app window
-      this.checkAppIsOutdated();
       this.initAccessTokenSubscription();
       this.initAuthStateSubscription();
       this.initProfileForm();
@@ -137,6 +139,8 @@ export class AuthComponent implements OnInit, OnDestroy {
           this.logger.info('Closing authentication window');
         }
       });
+
+    this.checkAppIsOutdated();
   }
 
   ngOnDestroy() {
@@ -154,12 +158,11 @@ export class AuthComponent implements OnInit, OnDestroy {
    */
   checkAppIsOutdated(): void {
     this.appService.isApplicationOutdated().subscribe((isOutdated: boolean) => {
+      this.logger.info(`Application Outdated Status: ${isOutdated}`);
       this.isAppOutdated = isOutdated;
-      this.isReady = true;
       this.versionCheckingError = false;
     }, (error) => {
       this.errorHandlingService.handleError(error);
-      this.isReady = true;
       this.versionCheckingError = true;
     });
   }
