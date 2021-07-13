@@ -13,6 +13,7 @@ export class LoggingService {
   private readonly LOG_FILE_NAME = 'CATcher-log.txt';
   public readonly LOG_START_HEADER = `====== New CATcher v${AppConfig.version} Session Log ======`;
   public readonly LOG_COUNT_LIMIT = 4;
+  public readonly SESSION_LOG_SEPARATOR = '\n'.repeat(2); // More new-lines added for clarity.
 
   constructor(electronService: ElectronService) {
     if (electronService.isElectron()) {
@@ -44,7 +45,7 @@ export class LoggingService {
     }
   }
 
-  initializeLogCache() {
+  private initializeLogCache() {
     this.setCachedLog(this.getTrimmedLogCache(this.getCachedLog(), this.LOG_COUNT_LIMIT));
   }
 
@@ -53,8 +54,7 @@ export class LoggingService {
    * of Sessions if necessary.
    * @param sessionCount The number of Session Logs to preserve in the cache
    */
-  getTrimmedLogCache(currentLog: string, sessionCount: number): string {
-    const sessionLogSeparator: string = '\n'.repeat(2); // More new-lines added for clarity.
+  private getTrimmedLogCache(currentLog: string, sessionCount: number): string {
     const currentDateTime = new Date().toLocaleString();
     const logHeaderWithDateTime = `${this.LOG_START_HEADER}\n${currentDateTime}`;
 
@@ -68,7 +68,7 @@ export class LoggingService {
     }
 
     if (numberOfSessions < sessionCount) {
-      return `${currentLog}${sessionLogSeparator}${logHeaderWithDateTime}`;
+      return `${currentLog}${this.SESSION_LOG_SEPARATOR}${logHeaderWithDateTime}`;
     }
 
     const separatedSessionLogs: string[] = currentLog.split(`${this.LOG_START_HEADER}`)
@@ -78,18 +78,18 @@ export class LoggingService {
     separatedSessionLogs.splice(0, separatedSessionLogs.length - sessionCount + 1);
     separatedSessionLogs.push(`${logHeaderWithDateTime}`);
 
-    return separatedSessionLogs.join(sessionLogSeparator);
+    return separatedSessionLogs.join(this.SESSION_LOG_SEPARATOR);
   }
 
   getCachedLog(): string {
     return localStorage.getItem(this.LOG_KEY);
   }
 
-  setCachedLog(updatedLog: string): void {
+  private setCachedLog(updatedLog: string): void {
     localStorage.setItem(this.LOG_KEY, updatedLog);
   }
 
-  updateLog(... updatedLog: any[]): void {
+  private updateLog(... updatedLog: any[]): void {
     this.setCachedLog(`${this.getCachedLog()}\n${updatedLog.toString()}`);
   }
 
