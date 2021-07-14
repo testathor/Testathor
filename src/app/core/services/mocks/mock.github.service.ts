@@ -79,7 +79,7 @@ export class MockGithubService {
    * being present.
    */
   fetchAllLabels(): Observable<Array<{}>> {
-    return of(LabelService.getRequiredLabelsAsArray().map((label: Label) => {
+    return of(LabelService.getRequiredLabelsAsArray(true).map((label: Label) => {
       return {
         name: label.labelCategory ? `${label.labelCategory}.${label.labelValue}` : `${label.labelValue}`,
         color: `${label.labelColor}`

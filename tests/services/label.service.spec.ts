@@ -14,33 +14,53 @@ describe('LabelService', () => {
   });
 
   describe('.syncLabels()', () => {
-    it('should create all required labels if no required labels are fetched', () => {
+    it('should create all required labels for team phase if no required labels are fetched', () => {
       githubService.fetchAllLabels.and.callFake(() => of([]));
-      of(true).pipe(labelService.syncLabels()).subscribe();
+      of(true).pipe(labelService.syncLabels(true)).subscribe();
 
       assertLabelCreated(githubService, LabelConstant.SEVERITY_LOW_LABEL);
       assertLabelCreated(githubService, LabelConstant.RESPONSE_REJECTED_LABEL);
       assertLabelCreated(githubService, LabelConstant.STATUS_DONE_LABEL);
       assertLabelCreated(githubService, LabelConstant.TYPE_DOCUMENTATION_BUG_LABEL);
-      expect(githubService.createLabel).toHaveBeenCalledTimes(LabelService.getRequiredLabelsAsArray().length);
+      expect(githubService.createLabel).toHaveBeenCalledTimes(LabelService.getRequiredLabelsAsArray(true).length);
     });
 
-    it('should create missing required labels if some required labels are fetched', () => {
-      githubService.fetchAllLabels.and.callFake(() => of(LabelConstant.LABEL_ARRAY));
-      of(true).pipe(labelService.syncLabels()).subscribe();
+    it('should create all required labels for tester phase if no required labels are fetched', () => {
+      githubService.fetchAllLabels.and.callFake(() => of([]));
+      of(true).pipe(labelService.syncLabels(false)).subscribe();
+
+      assertLabelCreated(githubService, LabelConstant.SEVERITY_LOW_LABEL);
+      assertLabelCreated(githubService, LabelConstant.TYPE_DOCUMENTATION_BUG_LABEL);
+      expect(githubService.createLabel).toHaveBeenCalledTimes(LabelService.getRequiredLabelsAsArray(false).length);
+    });
+
+    it('should create missing required labels for team phase if some required labels are fetched', () => {
+      githubService.fetchAllLabels.and.callFake(() => of(LabelConstant.LABEL_ARRAY_TEAM_OR_MODERATION_PHASE));
+      of(true).pipe(labelService.syncLabels(true)).subscribe();
 
       assertLabelNotCreated(githubService, LabelConstant.SEVERITY_LOW_LABEL);
       assertLabelCreated(githubService, LabelConstant.RESPONSE_REJECTED_LABEL);
       assertLabelCreated(githubService, LabelConstant.STATUS_DONE_LABEL);
       assertLabelCreated(githubService, LabelConstant.TYPE_DOCUMENTATION_BUG_LABEL);
       expect(githubService.createLabel).toHaveBeenCalledTimes(
-        LabelService.getRequiredLabelsAsArray().length - LabelConstant.LABEL_ARRAY.length
+        LabelService.getRequiredLabelsAsArray(true).length - LabelConstant.LABEL_ARRAY_TEAM_OR_MODERATION_PHASE.length
+      );
+    });
+
+    it('should create missing required labels for tester phase if some required labels are fetched', () => {
+      githubService.fetchAllLabels.and.callFake(() => of(LabelConstant.LABEL_ARRAY_TESTER_PHASE));
+      of(true).pipe(labelService.syncLabels(false)).subscribe();
+
+      assertLabelNotCreated(githubService, LabelConstant.SEVERITY_HIGH_LABEL);
+      assertLabelCreated(githubService, LabelConstant.TYPE_FUNCTIONALITY_BUG_LABEL);
+      expect(githubService.createLabel).toHaveBeenCalledTimes(
+        LabelService.getRequiredLabelsAsArray(false).length - LabelConstant.LABEL_ARRAY_TESTER_PHASE.length
       );
     });
 
     it('should not need to create any required labels if all required labels are fetched', () => {
       githubService.fetchAllLabels.and.callFake(() => of(LabelConstant.ALL_REQUIRED_LABELS_ARRAY));
-      of(true).pipe(labelService.syncLabels()).subscribe();
+      of(true).pipe(labelService.syncLabels(true)).subscribe();
 
       expect(githubService.createLabel).toHaveBeenCalledTimes(0);
     });
@@ -50,7 +70,7 @@ describe('LabelService', () => {
 describe('LabelService: parseLabelData()', () => {
   beforeAll(() => {
     labelService = new LabelService(null);
-    labelList = labelService.parseLabelData(LabelConstant.LABEL_ARRAY);
+    labelList = labelService.parseLabelData(LabelConstant.LABEL_ARRAY_TEAM_OR_MODERATION_PHASE);
   });
 
   afterAll(() => {

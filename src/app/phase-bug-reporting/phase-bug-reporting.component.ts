@@ -18,6 +18,7 @@ export class PhaseBugReportingComponent implements OnInit {
     TABLE_COLUMNS.SEVERITY,
     TABLE_COLUMNS.ACTIONS
   ];
+
   readonly actionButtons: ACTION_BUTTONS[] = [
     ACTION_BUTTONS.VIEW_IN_WEB,
     ACTION_BUTTONS.DELETE_ISSUE,
