@@ -10,6 +10,10 @@ import { GithubUser } from '../models/github-user.model';
 @Injectable({
   providedIn: 'root',
 })
+
+/**
+ * Responsible for creation of users and teams within the CATcher application.
+ */
 export class UserService {
   public currentUser: User;
 

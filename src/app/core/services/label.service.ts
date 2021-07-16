@@ -48,6 +48,11 @@ const REQUIRED_LABELS = {
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * Responsible for retrieval and parsing of label data from the GitHub
+ * repository for the CATcher application.
+ */
 export class LabelService {
 
   private static severityLabels: Label[] = Object.values(REQUIRED_LABELS.severity);

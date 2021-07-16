@@ -19,6 +19,10 @@ export const getSizeExceedErrorMsg = (fileType: string, size: number): string =>
 @Injectable({
   providedIn: 'root',
 })
+
+/**
+ * Responsible for upload of media files to the current phase's repository.
+ */
 export class UploadService {
 
   constructor(private githubService: GithubService) {}

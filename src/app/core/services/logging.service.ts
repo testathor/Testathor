@@ -6,6 +6,11 @@ import { AppConfig } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * Responsible for logging events and errors while the application is
+ * running to ease debugging for CATcher developers and maintainers.
+ */
 export class LoggingService {
   private logger: ElectronLog | Console;
   private isInSession = false;

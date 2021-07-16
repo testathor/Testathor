@@ -12,6 +12,11 @@ declare global {
 @Injectable({
   providedIn: 'root',
 })
+
+/**
+ * Responsible for setting up the electron application environment and the
+ * respective event listeners and handlers.
+ */
 export class ElectronService {
   ipcRenderer: typeof ipcRenderer;
 
