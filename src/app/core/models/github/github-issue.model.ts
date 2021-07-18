@@ -1,5 +1,5 @@
-import { GithubComment } from './github-comment.model';
 import { IssueState } from '../../../../../graphql/graphql-types';
+import { GithubComment } from './github-comment.model';
 import { GithubLabel } from './github-label.model';
 
 export class GithubIssue {

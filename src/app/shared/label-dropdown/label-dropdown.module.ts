@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LabelDropdownComponent } from './label-dropdown.component';
+import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared.module';
+import { LabelDropdownComponent } from './label-dropdown.component';
 
 @NgModule({
   declarations: [

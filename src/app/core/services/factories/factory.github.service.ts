@@ -1,5 +1,5 @@
-import { AppConfig } from '../../../../environments/environment';
 import { Apollo } from 'apollo-angular';
+import { AppConfig } from '../../../../environments/environment';
 import { ElectronService } from '../electron.service';
 import { ErrorHandlingService } from '../error-handling.service';
 import { GithubService } from '../github.service';

@@ -1,10 +1,10 @@
-import { TitleComponent } from '../../../../../src/app/shared/issue/title/title.component';
-import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../../constants/githubissue.constants';
-import { Issue } from '../../../../../src/app/core/models/issue.model';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { of } from 'rxjs';
-import { PhaseService } from '../../../../../src/app/core/services/phase.service';
+import { Issue } from '../../../../../src/app/core/models/issue.model';
 import { Phase } from '../../../../../src/app/core/models/phase.model';
+import { PhaseService } from '../../../../../src/app/core/services/phase.service';
+import { TitleComponent } from '../../../../../src/app/shared/issue/title/title.component';
+import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../../constants/githubissue.constants';
 
 describe('TitleComponent', () => {
   let titleComponent: TitleComponent;
@@ -15,7 +15,7 @@ describe('TitleComponent', () => {
 
   beforeEach(() => {
     formBuilder = new FormBuilder();
-    phaseService = new PhaseService(null, null, null, null, null);
+    phaseService = new PhaseService(null, null, null);
     phaseService.currentPhase = Phase.phaseTeamResponse;
 
     issueService = jasmine.createSpyObj('IssueService', ['updateIssue']);

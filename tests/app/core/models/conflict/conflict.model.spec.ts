@@ -1,6 +1,6 @@
+import { Addition } from '../../../../../src/app/core/models/conflict/addition.model';
 import { Conflict } from '../../../../../src/app/core/models/conflict/conflict.model';
 import { NoChange } from '../../../../../src/app/core/models/conflict/no-change.model';
-import { Addition } from '../../../../../src/app/core/models/conflict/addition.model';
 import { Removal } from '../../../../../src/app/core/models/conflict/removal.model';
 import { replaceNewlinesWithBreakLines } from '../../../../../src/app/shared/lib/html';
 

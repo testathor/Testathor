@@ -1,19 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, SimpleChanges, OnChanges } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Issue } from '../../../core/models/issue.model';
-import { CommentEditorComponent } from '../../comment-editor/comment-editor.component';
-import { IssueService } from '../../../core/services/issue.service';
-import { ErrorHandlingService } from '../../../core/services/error-handling.service';
-import { UserService } from '../../../core/services/user.service';
-import { UserRole } from '../../../core/models/user.model';
-import { IssueComment } from '../../../core/models/comment.model';
-import { SUBMIT_BUTTON_TEXT } from '../view-issue.component';
-import { finalize, map, flatMap } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
-import { ConflictDialogComponent, TesterResponseConflictData } from './conflict-dialog/conflict-dialog.component';
-import { PhaseService } from '../../../core/services/phase.service';
+import { Observable, throwError } from 'rxjs';
+import { finalize, flatMap, map } from 'rxjs/operators';
+import { IssueComment } from '../../../core/models/comment.model';
+import { Issue } from '../../../core/models/issue.model';
 import { TesterResponse } from '../../../core/models/tester-response.model';
+import { UserRole } from '../../../core/models/user.model';
+import { ErrorHandlingService } from '../../../core/services/error-handling.service';
+import { IssueService } from '../../../core/services/issue.service';
+import { PhaseService } from '../../../core/services/phase.service';
+import { UserService } from '../../../core/services/user.service';
+import { CommentEditorComponent } from '../../comment-editor/comment-editor.component';
+import { SUBMIT_BUTTON_TEXT } from '../view-issue.component';
+import { ConflictDialogComponent, TesterResponseConflictData } from './conflict-dialog/conflict-dialog.component';
 
 @Component({
   selector: 'app-tester-response',

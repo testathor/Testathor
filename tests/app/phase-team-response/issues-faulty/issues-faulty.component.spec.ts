@@ -1,9 +1,9 @@
-import { IssuesFaultyComponent } from '../../../../src/app/phase-team-response/issues-faulty/issues-faulty.component';
 import { Issue } from '../../../../src/app/core/models/issue.model';
-import { generateIssueWithRandomData, ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../constants/githubissue.constants';
 import { IssueService } from '../../../../src/app/core/services/issue.service';
 import { UserService } from '../../../../src/app/core/services/user.service';
-import { USER_Q, TEAM_3, TEAM_4 } from '../../../constants/data.constants';
+import { IssuesFaultyComponent } from '../../../../src/app/phase-team-response/issues-faulty/issues-faulty.component';
+import { TEAM_3, TEAM_4, USER_Q } from '../../../constants/data.constants';
+import { generateIssueWithRandomData, ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../constants/githubissue.constants';
 
 describe('IssuesFaultyComponent', () => {
   describe('.ngOnInit()', () => {
@@ -17,7 +17,7 @@ describe('IssuesFaultyComponent', () => {
     const DUMMY_RESPONSE = 'dummy response';
 
     beforeEach(() => {
-      issueService = new IssueService(null, null, null, null, null, null, null);
+      issueService = new IssueService(null, null, null, null, null);
       issueService.updateLocalStore(dummyIssue);
       issuesFaultyComponent = new IssuesFaultyComponent(issueService, userService, null);
       issuesFaultyComponent.ngOnInit();

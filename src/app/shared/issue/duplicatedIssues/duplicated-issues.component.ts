@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Issue } from '../../../core/models/issue.model';
+import { ErrorHandlingService } from '../../../core/services/error-handling.service';
 import { IssueService } from '../../../core/services/issue.service';
 import { PermissionService } from '../../../core/services/permission.service';
-import { Observable } from 'rxjs';
-import { ErrorHandlingService } from '../../../core/services/error-handling.service';
 import { PhaseService } from '../../../core/services/phase.service';
 
 @Component({

@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { AuthService } from '../../core/services/auth.service';
-import { PhaseService, PhaseDescription } from '../../core/services/phase.service';
-import { Phase } from '../../core/models/phase.model';
-import { UserService } from '../../core/services/user.service';
+import { Component, OnInit } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
-import { GithubEventService } from '../../core/services/githubevent.service';
-import { ErrorHandlingService } from '../../core/services/error-handling.service';
-import { IssueService } from '../../core/services/issue.service';
-import { GithubService } from '../../core/services/github.service';
-import { UserRole } from '../../core/models/user.model';
-import { ElectronService } from '../../core/services/electron.service';
-import { LoggingService } from '../../core/services/logging.service';
 import { AppConfig } from '../../../environments/environment';
+import { Phase } from '../../core/models/phase.model';
+import { UserRole } from '../../core/models/user.model';
+import { AuthService } from '../../core/services/auth.service';
+import { ElectronService } from '../../core/services/electron.service';
+import { ErrorHandlingService } from '../../core/services/error-handling.service';
+import { GithubService } from '../../core/services/github.service';
+import { GithubEventService } from '../../core/services/githubevent.service';
+import { IssueService } from '../../core/services/issue.service';
+import { LoggingService } from '../../core/services/logging.service';
+import { PhaseDescription, PhaseService } from '../../core/services/phase.service';
+import { UserService } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-layout-header',
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
               public auth: AuthService,
               public phaseService: PhaseService,
               public userService: UserService,
-              private loggingService: LoggingService,
+              public loggingService: LoggingService,
               private location: Location,
               private githubEventService: GithubEventService,
               private issueService: IssueService,

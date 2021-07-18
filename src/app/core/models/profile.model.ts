@@ -1,4 +1,4 @@
-import { Schema, isValidObject } from '../../shared/lib/validate';
+import { isValidObject, Schema } from '../../shared/lib/validate';
 
 /**
  * Indicates all the elements that make up a Profile.

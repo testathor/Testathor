@@ -1,8 +1,8 @@
-import { getSortedData } from '../../../../src/app/shared/issue-tables/issue-sorter';
 import { MatSort } from '@angular/material';
 import { Issue } from '../../../../src/app/core/models/issue.model';
-import { ISSUE_WITH_ASSIGNEES, ISSUE_WITH_EMPTY_DESCRIPTION, ISSUE_PENDING_MODERATION } from '../../../constants/githubissue.constants';
+import { getSortedData } from '../../../../src/app/shared/issue-tables/issue-sorter';
 import { TEAM_4 } from '../../../constants/data.constants';
+import { ISSUE_PENDING_MODERATION, ISSUE_WITH_ASSIGNEES, ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../constants/githubissue.constants';
 
 describe('issuer-sorter', () => {
   describe('getSortedData()', () => {

@@ -1,18 +1,18 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IssueService } from '../../../core/services/issue.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { Observable, throwError } from 'rxjs';
+import { finalize, flatMap, map } from 'rxjs/operators';
+import { IssueComment } from '../../../core/models/comment.model';
+import { Conflict } from '../../../core/models/conflict/conflict.model';
 import { Issue, SEVERITY_ORDER, STATUS } from '../../../core/models/issue.model';
 import { ErrorHandlingService } from '../../../core/services/error-handling.service';
-import { finalize, flatMap, map } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+import { IssueService } from '../../../core/services/issue.service';
 import { LabelService } from '../../../core/services/label.service';
-import { IssueComment } from '../../../core/models/comment.model';
-import { SUBMIT_BUTTON_TEXT } from '../view-issue.component';
-import { Conflict } from '../../../core/models/conflict/conflict.model';
-import { MatDialog } from '@angular/material';
-import { ConflictDialogComponent } from './conflict-dialog/conflict-dialog.component';
 import { PhaseService } from '../../../core/services/phase.service';
-import { MatCheckboxChange } from '@angular/material/checkbox';
+import { SUBMIT_BUTTON_TEXT } from '../view-issue.component';
+import { ConflictDialogComponent } from './conflict-dialog/conflict-dialog.component';
 
 @Component({
   selector: 'app-new-team-response',

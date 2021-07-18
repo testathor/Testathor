@@ -1,7 +1,7 @@
-import { LabelService } from '../../src/app/core/services/label.service';
-import { Label } from '../../src/app/core/models/label.model';
-import * as LabelConstant from '../constants/label.constants';
 import { of } from 'rxjs';
+import { Label } from '../../src/app/core/models/label.model';
+import { LabelService } from '../../src/app/core/services/label.service';
+import * as LabelConstant from '../constants/label.constants';
 
 let labelService: LabelService;
 let labelList: Label[];

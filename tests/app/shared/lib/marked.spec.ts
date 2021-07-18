@@ -1,5 +1,5 @@
-import { markedOptionsFactory } from '../../../../src/app/shared/lib/marked';
 import { MarkedOptions, MarkedRenderer } from 'ngx-markdown';
+import { markedOptionsFactory } from '../../../../src/app/shared/lib/marked';
 
 describe('markedOptionsFactory', () => {
   const markedOptions: MarkedOptions = markedOptionsFactory();

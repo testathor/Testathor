@@ -1,6 +1,6 @@
+import { of } from 'rxjs';
 import { ApplicationService } from '../../src/app/core/services/application.service';
 import { GithubService } from '../../src/app/core/services/github.service';
-import { of } from 'rxjs';
 
 const currentVersion = '3.2.5';
 

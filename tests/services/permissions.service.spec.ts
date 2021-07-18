@@ -1,8 +1,8 @@
+import { Phase } from '../../src/app/core/models/phase.model';
+import { UserRole } from '../../src/app/core/models/user.model';
 import { PermissionService } from '../../src/app/core/services/permission.service';
 import { PhaseService } from '../../src/app/core/services/phase.service';
-import { Phase } from '../../src/app/core/models/phase.model';
 import { UserService } from '../../src/app/core/services/user.service';
-import { UserRole } from '../../src/app/core/models/user.model';
 
 const testStudent = {
   loginId: 'testStudent',
@@ -20,8 +20,8 @@ const testAdmin = {
 };
 
 const mockUserService = new UserService(null, null);
-const mockPhaseService = new PhaseService(null, null, null, null, null);
-const permissionService = new PermissionService(null, mockUserService, mockPhaseService);
+const mockPhaseService = new PhaseService(null, null, null);
+const permissionService = new PermissionService(mockUserService, mockPhaseService);
 
 describe('Test a few permissions for each role in each phase', () => {
   it('Test a few permissions for UserRole.Student', () => {

@@ -1,12 +1,11 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { IssueService } from '../../core/services/issue.service';
-import { IssuesDataTable } from '../../shared/issue-tables/IssuesDataTable';
 import { Issue, STATUS } from '../../core/models/issue.model';
+import { UserRole } from '../../core/models/user.model';
+import { IssueService } from '../../core/services/issue.service';
 import { PermissionService } from '../../core/services/permission.service';
 import { UserService } from '../../core/services/user.service';
-import { UserRole } from '../../core/models/user.model';
-import { ACTION_BUTTONS, IssueTablesComponent } from '../../shared/issue-tables/issue-tables.component';
 import { TABLE_COLUMNS } from '../../shared/issue-tables/issue-tables-columns';
+import { ACTION_BUTTONS, IssueTablesComponent } from '../../shared/issue-tables/issue-tables.component';
 
 @Component({
   selector: 'app-issues-pending',

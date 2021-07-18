@@ -1,4 +1,4 @@
-import { app, MenuItemConstructorOptions, MenuItem, Menu, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu, MenuItem, MenuItemConstructorOptions } from 'electron';
 
 // Edited version of a template menu-bar provided by the electron API,
 // refer to https://electronjs.org/docs/api/menu for more information.

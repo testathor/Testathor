@@ -1,17 +1,17 @@
-import { Team } from './team.model';
-import { TesterResponse } from './tester-response.model';
+import * as moment from 'moment';
+import { Phase } from '../models/phase.model';
 import { IssueComment } from './comment.model';
-import { IssueDispute } from './issue-dispute.model';
+import { GithubComment } from './github/github-comment.model';
 import { GithubIssue } from './github/github-issue.model';
 import { GithubLabel } from './github/github-label.model';
-import { GithubComment } from './github/github-comment.model';
+import { HiddenData } from './hidden-data.model';
+import { IssueDispute } from './issue-dispute.model';
+import { Team } from './team.model';
 import { TeamResponseTemplate } from './templates/team-response-template.model';
 import { TesterResponseTemplate } from './templates/tester-response-template.model';
 import { TutorModerationIssueTemplate } from './templates/tutor-moderation-issue-template.model';
 import { TutorModerationTodoTemplate } from './templates/tutor-moderation-todo-template.model';
-import { Phase } from '../models/phase.model';
-import * as moment from 'moment';
-import { HiddenData } from './hidden-data.model';
+import { TesterResponse } from './tester-response.model';
 
 export class Issue {
 

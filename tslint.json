@@ -130,9 +130,11 @@
     "no-host-metadata-property": true,
     "no-input-rename": true,
     "no-output-rename": true,
+    "no-unused-variable": [true, {"ignore-pattern": "^_"}],
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "ordered-imports": true
   }
 }

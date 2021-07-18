@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { flatMap, tap } from 'rxjs/operators';
-import { Observable, of, pipe, UnaryFunction } from 'rxjs';
-import { GithubService } from './github.service';
-import { UserService } from './user.service';
-import { Phase } from '../models/phase.model';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { SessionFixConfirmationComponent } from './session-fix-confirmation/session-fix-confirmation.component';
+import { Observable, of, pipe, UnaryFunction } from 'rxjs';
+import { flatMap, tap } from 'rxjs/operators';
+import { Phase } from '../models/phase.model';
 import { UserRole } from '../models/user.model';
+import { GithubService } from './github.service';
+import { SessionFixConfirmationComponent } from './session-fix-confirmation/session-fix-confirmation.component';
+import { UserService } from './user.service';
 
 export const MISSING_REQUIRED_REPO = 'You cannot proceed without the required repository.';
 export const CURRENT_PHASE_REPO_CLOSED = 'Current Phase\'s Repository has not been opened.';

@@ -1,16 +1,16 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { JsonParseErrorDialogComponent } from './json-parse-error-dialog/json-parse-error-dialog.component';
 import {
-  trigger,
+  animate,
   state,
   style,
-  animate,
-  transition
+  transition,
+  trigger
 } from '@angular/animations';
-import { Profile, isValidProfile } from '../../core/models/profile.model';
-import { MALFORMED_PROFILES_ERROR, ProfileService } from '../../core/services/profile.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { isValidProfile, Profile } from '../../core/models/profile.model';
 import { ErrorHandlingService } from '../../core/services/error-handling.service';
+import { MALFORMED_PROFILES_ERROR, ProfileService } from '../../core/services/profile.service';
+import { JsonParseErrorDialogComponent } from './json-parse-error-dialog/json-parse-error-dialog.component';
 
 @Component({
   selector: 'app-profiles',

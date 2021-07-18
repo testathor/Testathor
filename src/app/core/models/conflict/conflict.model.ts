@@ -1,9 +1,9 @@
 import { diff_match_patch } from 'diff-match-patch';
 import { escapeHTML, replaceNewlinesWithBreakLines } from '../../../shared/lib/html';
-import { Changes } from './changes.model';
-import { Removal } from './removal.model';
 import { Addition } from './addition.model';
+import { Changes } from './changes.model';
 import { NoChange } from './no-change.model';
+import { Removal } from './removal.model';
 
 /**
  * A model to represent the difference/conflict between two text.

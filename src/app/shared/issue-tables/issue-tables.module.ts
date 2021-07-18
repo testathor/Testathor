@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IssueTablesComponent } from './issue-tables.component';
-import { MaterialModule } from '../material.module';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../material.module';
+import { IssueTablesComponent } from './issue-tables.component';
 
 @NgModule({
   exports: [

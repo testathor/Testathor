@@ -1,4 +1,8 @@
+import { IssueState } from '../../graphql/graphql-types';
 import { GithubIssue } from '../../src/app/core/models/github/github-issue.model';
+import { GithubLabel } from '../../src/app/core/models/github/github-label.model';
+import { USER_ANUBHAV, USER_SHUMING } from './data.constants';
+import { EMPTY_TEAM_RESPONSE, PENDING_TUTOR_MODERATION } from './githubcomment.constants';
 import {
   GITHUB_LABEL_DOCUMENTATION_BUG,
   GITHUB_LABEL_FEATURE_FLAW,
@@ -9,10 +13,6 @@ import {
   GITHUB_LABEL_TEAM_LABEL,
   GITHUB_LABEL_TUTORIAL_LABEL
 } from './githublabel.constants';
-import { IssueState } from '../../graphql/graphql-types';
-import { EMPTY_TEAM_RESPONSE, PENDING_TUTOR_MODERATION } from './githubcomment.constants';
-import { GithubLabel } from '../../src/app/core/models/github/github-label.model';
-import { USER_ANUBHAV, USER_SHUMING } from './data.constants';
 
 const randomId: () => string = () => {
   return Math.floor(Math.random() * 1000000000).toString();
@@ -53,14 +53,15 @@ const USER_SHUMING_ASSIGNEE_DETAILS = {
   url: 'https://api.github.com/users/geshuming'
 };
 
-const ISSUE_BODY = '# Issue Description\n{original issue description}\n' +
-"# Team's Response\n{team's response}\n # Disputes\n\n" +
-"## :question: Issue Type\n\n### Team says:\r\n{the team's action that is being disputed}\r\n\r\n" +
-"### Tester says:\r\n{tester's objection}\n\n-------------------\n## :question: Issue Severity\n\n" +
-"### Team says:\r\n{the team's action that is being disputed}\r\n\r\n" +
-"### Tester says:\r\n{tester's objection}\n\n-------------------\n## :question: Not Related Question\n\n" +
-"### Team says:\r\n{the team's action that is being disputed}\r\n\r\n" +
-"### Tester says:\r\n{tester's objection}\n\n-------------------\n\n";
+const ISSUE_BODY =
+  '# Issue Description\n{original issue description}\n' +
+  "# Team's Response\n{team's response}\n # Disputes\n\n" +
+  "## :question: Issue Type\n\n### Team says:\r\n{the team's action that is being disputed}\r\n\r\n" +
+  "### Tester says:\r\n{tester's objection}\n\n-------------------\n## :question: Issue Severity\n\n" +
+  "### Team says:\r\n{the team's action that is being disputed}\r\n\r\n" +
+  "### Tester says:\r\n{tester's objection}\n\n-------------------\n## :question: Not Related Question\n\n" +
+  "### Team says:\r\n{the team's action that is being disputed}\r\n\r\n" +
+  "### Tester says:\r\n{tester's objection}\n\n-------------------\n\n";
 
 export const ISSUE_WITH_EMPTY_DESCRIPTION = new GithubIssue({
   id: '574085971',
@@ -125,9 +126,7 @@ export const DUPLICATED_ISSUE_WITH_EMPTY_DESCRIPTION_HIGH_SEVERITY = new GithubI
 export const ISSUE_WITH_ASSIGNEES = new GithubIssue({
   id: '551732011',
   number: 91,
-  assignees: [
-    USER_ANUBHAV_ASSIGNEE_DETAILS
-  ],
+  assignees: [USER_ANUBHAV_ASSIGNEE_DETAILS],
   body: 'Screen freezes every few minutes',
   created_at: '2020-01-18T07:01:45Z',
   labels: [GITHUB_LABEL_TEAM_LABEL, GITHUB_LABEL_TUTORIAL_LABEL, GITHUB_LABEL_FUNCTIONALITY_BUG, GITHUB_LABEL_MEDIUM_SEVERITY],
@@ -163,9 +162,7 @@ export const generateIssueWithRandomData: () => GithubIssue = () => {
 export const ISSUE_PENDING_MODERATION = new GithubIssue({
   id: '574674360',
   number: 26,
-  assignees: [
-    USER_SHUMING_ASSIGNEE_DETAILS
-  ],
+  assignees: [USER_SHUMING_ASSIGNEE_DETAILS],
   body: ISSUE_BODY,
   created_at: '2020-03-03T13:38:32Z',
   labels: [GITHUB_LABEL_TEAM_LABEL, GITHUB_LABEL_TUTORIAL_LABEL, GITHUB_LABEL_FUNCTIONALITY_BUG, GITHUB_LABEL_MEDIUM_SEVERITY],
@@ -180,9 +177,7 @@ export const ISSUE_PENDING_MODERATION = new GithubIssue({
 export const ISSUE_PENDING_MODERATION_HIGH_SEVERITY_FEATURE_FLAW = new GithubIssue({
   id: '239538360',
   number: 93,
-  assignees: [
-    USER_SHUMING_ASSIGNEE_DETAILS
-  ],
+  assignees: [USER_SHUMING_ASSIGNEE_DETAILS],
   body: ISSUE_BODY,
   created_at: '2020-10-14T10:28:32Z',
   labels: [GITHUB_LABEL_TEAM_LABEL, GITHUB_LABEL_TUTORIAL_LABEL, GITHUB_LABEL_FEATURE_FLAW, GITHUB_LABEL_HIGH_SEVERITY],
@@ -197,9 +192,7 @@ export const ISSUE_PENDING_MODERATION_HIGH_SEVERITY_FEATURE_FLAW = new GithubIss
 export const ISSUE_PENDING_MODERATION_LOW_SEVERITY_DOCUMENTATION_BUG = new GithubIssue({
   id: '384756360',
   number: 6,
-  assignees: [
-    USER_SHUMING_ASSIGNEE_DETAILS
-  ],
+  assignees: [USER_SHUMING_ASSIGNEE_DETAILS],
   body: ISSUE_BODY,
   created_at: '2020-03-26T09:08:12Z',
   labels: [GITHUB_LABEL_TEAM_LABEL, GITHUB_LABEL_TUTORIAL_LABEL, GITHUB_LABEL_DOCUMENTATION_BUG, GITHUB_LABEL_LOW_SEVERITY],

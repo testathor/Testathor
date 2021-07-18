@@ -1,8 +1,8 @@
-import { IssueRespondedComponent } from '../../../../src/app/phase-tester-response/issue-responded/issue-responded.component';
-import { Issue, STATUS } from '../../../../src/app/core/models/issue.model';
-import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../constants/githubissue.constants';
 import { IssueComment } from '../../../../src/app/core/models/comment.model';
+import { Issue, STATUS } from '../../../../src/app/core/models/issue.model';
+import { IssueRespondedComponent } from '../../../../src/app/phase-tester-response/issue-responded/issue-responded.component';
 import { USER_JUNWEI } from '../../../constants/data.constants';
+import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../constants/githubissue.constants';
 
 describe('IssueRespondedComponent', () => {
   describe('.ngOnInit()', () => {

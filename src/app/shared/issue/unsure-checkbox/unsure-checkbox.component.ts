@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Issue } from '../../../core/models/issue.model';
-import { IssueService } from '../../../core/services/issue.service';
 import { ErrorHandlingService } from '../../../core/services/error-handling.service';
+import { IssueService } from '../../../core/services/issue.service';
 import { PhaseService } from '../../../core/services/phase.service';
 
 @Component({

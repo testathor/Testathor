@@ -1,10 +1,10 @@
 import { IssueDispute } from '../../src/app/core/models/issue-dispute.model';
 import { Issue } from '../../src/app/core/models/issue.model';
-import { TEAM_4 } from '../constants/data.constants';
-import { TesterResponse } from '../../src/app/core/models/tester-response.model';
 import { Phase } from '../../src/app/core/models/phase.model';
+import { TesterResponse } from '../../src/app/core/models/tester-response.model';
+import { TEAM_4 } from '../constants/data.constants';
 
-import { ISSUE_WITH_EMPTY_DESCRIPTION, ISSUE_WITH_ASSIGNEES } from '../constants/githubissue.constants';
+import { ISSUE_WITH_ASSIGNEES, ISSUE_WITH_EMPTY_DESCRIPTION } from '../constants/githubissue.constants';
 
 describe('Issue model class', () => {
   describe('.createPhaseBugReportIssue(githubIssue)', () => {

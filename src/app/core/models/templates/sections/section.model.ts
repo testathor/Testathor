@@ -31,7 +31,7 @@ export class Section {
     this.sectionRegex = new RegExp(`(${this.header})\\s+([\\s\\S]*?)(?=${matchTillRegex}|$)`, 'i');
     const matches = this.sectionRegex.exec(unprocessedContent);
     if (matches) {
-      const [originalString, header, description] = matches;
+      const [_originalString, _header, description] = matches;
       this.content = description.trim();
       this.parseError = null;
     } else {

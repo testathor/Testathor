@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
-import { PhaseBugReportingModule } from './phase-bug-reporting/phase-bug-reporting.module';
-import { PhaseTeamResponseModule } from './phase-team-response/phase-team-response.module';
-import { PhaseModerationModule } from './phase-moderation/phase-moderation.module';
 import { AuthGuard } from './core/guards/auth.guard';
+import { PhaseBugReportingModule } from './phase-bug-reporting/phase-bug-reporting.module';
+import { PhaseModerationModule } from './phase-moderation/phase-moderation.module';
+import { PhaseTeamResponseModule } from './phase-team-response/phase-team-response.module';
 import { PhaseTesterResponseModule } from './phase-tester-response/phase-tester-response.module';
 
 const routes: Routes = [

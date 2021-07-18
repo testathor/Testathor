@@ -1,14 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IssuesFilter } from '../core/models/issue.model';
-import { IssueService } from '../core/services/issue.service';
-import { ErrorHandlingService } from '../core/services/error-handling.service';
-import { UserService } from '../core/services/user.service';
 import { Phase } from '../core/models/phase.model';
 import { DataService } from '../core/services/data.service';
-import { LabelService } from '../core/services/label.service';
-import { GithubService } from '../core/services/github.service';
-import { ACTION_BUTTONS, IssueTablesComponent } from '../shared/issue-tables/issue-tables.component';
+import { IssueService } from '../core/services/issue.service';
+import { UserService } from '../core/services/user.service';
 import { TABLE_COLUMNS } from '../shared/issue-tables/issue-tables-columns';
+import { ACTION_BUTTONS, IssueTablesComponent } from '../shared/issue-tables/issue-tables.component';
 
 @Component({
   selector: 'app-phase-moderation',
@@ -34,8 +31,7 @@ export class PhaseModerationComponent implements OnInit {
   @ViewChild(IssueTablesComponent) table: IssueTablesComponent;
 
   constructor(private issueService: IssueService,
-              private errorHandlingService: ErrorHandlingService,
-              public userService: UserService, private labelService: LabelService, private githubService: GithubService,
+              public userService: UserService,
               private dataService: DataService) { }
 
   ngOnInit() {

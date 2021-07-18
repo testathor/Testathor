@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { NgZone } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { NgZone } from '@angular/core';
-import { ElectronService } from '../electron.service';
-import { UserService } from '../user.service';
-import { PhaseService } from '../phase.service';
-import { ErrorHandlingService } from '../error-handling.service';
-import { GithubService } from '../github.service';
-import { IssueService } from '../issue.service';
-import { DataService } from '../data.service';
-import { LabelService } from '../label.service';
-import { Title } from '@angular/platform-browser';
-import { GithubEventService } from '../githubevent.service';
 import { uuid } from '../../../shared/lib/uuid';
+import { DataService } from '../data.service';
+import { GithubService } from '../github.service';
+import { GithubEventService } from '../githubevent.service';
+import { IssueService } from '../issue.service';
 import { LoggingService } from '../logging.service';
+import { PhaseService } from '../phase.service';
+import { UserService } from '../user.service';
 
 export enum AuthState { 'NotAuthenticated', 'AwaitingAuthentication', 'ConfirmOAuthUser', 'Authenticated'}
 
@@ -26,13 +22,11 @@ export class MockAuthService {
   currentAuthState = this.authStateSource.asObservable();
   accessToken = new BehaviorSubject(undefined);
 
-  constructor(private electronService: ElectronService, private router: Router, private ngZone: NgZone,
-              private http: HttpClient,  private errorHandlingService: ErrorHandlingService,
+  constructor(private router: Router, private ngZone: NgZone,
               private githubService: GithubService,
               private userService: UserService,
               private issueService: IssueService,
               private phaseService: PhaseService,
-              private labelService: LabelService,
               private dataService: DataService,
               private githubEventService: GithubEventService,
               private titleService: Title,

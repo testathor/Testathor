@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
-import { PhaseModerationComponent } from './phase-moderation.component';
-import { IssueComponent } from './issue/issue.component';
 import { CanDeactivateIssueGuard } from '../core/guards/can-deactivate-issue-guard.service';
+import { IssueComponent } from './issue/issue.component';
+import { PhaseModerationComponent } from './phase-moderation.component';
 
 const routes: Routes = [
   {

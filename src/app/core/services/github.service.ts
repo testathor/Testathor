@@ -1,29 +1,29 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, filter, flatMap, map, throwIfEmpty } from 'rxjs/operators';
-import { forkJoin, from, Observable, of, throwError } from 'rxjs';
-import { getNumberOfPages } from '../../shared/lib/github-paginator-parser';
-import { IssueComment } from '../models/comment.model';
-import { ERRORCODE_NOT_FOUND, ErrorHandlingService } from './error-handling.service';
-import { GithubUser } from '../models/github-user.model';
-import { GithubIssue } from '../models/github/github-issue.model';
-import { GithubComment } from '../models/github/github-comment.model';
-import { GithubRelease } from '../models/github/github.release';
-import { GithubResponse } from '../models/github/github-response.model';
-import { IssuesCacheManager } from '../models/github/cache-manager/issues-cache-manager.model';
-import { IssueLastModifiedManagerModel } from '../models/github/cache-manager/issue-last-modified-manager.model';
 import { Apollo, QueryRef } from 'apollo-angular';
+import { ApolloQueryResult } from 'apollo-client';
+import { DocumentNode } from 'graphql';
+import { forkJoin, from, Observable, of, throwError } from 'rxjs';
+import { catchError, filter, flatMap, map, throwIfEmpty } from 'rxjs/operators';
 import {
   FetchIssue,
   FetchIssueQuery, FetchIssues, FetchIssuesByTeam, FetchIssuesByTeamQuery, FetchIssuesQuery,
 } from '../../../../graphql/graphql-types';
-import { GithubGraphqlIssue } from '../models/github/github-graphql.issue';
-import { ApolloQueryResult } from 'apollo-client';
-import { HttpErrorResponse } from '@angular/common/http';
-import RestGithubIssueFilter from '../models/github/github-issue-filter.model';
-import { DocumentNode } from 'graphql';
-import { ElectronService } from './electron.service';
-import { SessionData } from '../models/session.model';
 import { AppConfig } from '../../../environments/environment';
+import { getNumberOfPages } from '../../shared/lib/github-paginator-parser';
+import { IssueComment } from '../models/comment.model';
+import { GithubUser } from '../models/github-user.model';
+import { IssueLastModifiedManagerModel } from '../models/github/cache-manager/issue-last-modified-manager.model';
+import { IssuesCacheManager } from '../models/github/cache-manager/issues-cache-manager.model';
+import { GithubComment } from '../models/github/github-comment.model';
+import { GithubGraphqlIssue } from '../models/github/github-graphql.issue';
+import RestGithubIssueFilter from '../models/github/github-issue-filter.model';
+import { GithubIssue } from '../models/github/github-issue.model';
+import { GithubResponse } from '../models/github/github-response.model';
+import { GithubRelease } from '../models/github/github.release';
+import { SessionData } from '../models/session.model';
+import { ElectronService } from './electron.service';
+import { ERRORCODE_NOT_FOUND, ErrorHandlingService } from './error-handling.service';
 
 const Octokit = require('@octokit/rest');
 const CATCHER_ORG = 'CATcher-org';

@@ -1,17 +1,17 @@
-import { Component, OnInit, EventEmitter, Input, Output, ViewChild, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms';
-import { Issue } from '../../../core/models/issue.model';
-import { IssueComment } from '../../../core/models/comment.model';
-import { CommentEditorComponent } from '../../comment-editor/comment-editor.component';
-import { IssueService } from '../../../core/services/issue.service';
-import { UserService } from '../../../core/services/user.service';
-import { ErrorHandlingService } from '../../../core/services/error-handling.service';
-import { SUBMIT_BUTTON_TEXT } from '../view-issue.component';
-import { finalize, map, flatMap } from 'rxjs/operators';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Observable, throwError } from 'rxjs';
-import { GithubService } from '../../../core/services/github.service';
-import { PhaseService } from '../../../core/services/phase.service';
+import { finalize, flatMap, map } from 'rxjs/operators';
+import { IssueComment } from '../../../core/models/comment.model';
+import { Issue } from '../../../core/models/issue.model';
 import { ElectronService } from '../../../core/services/electron.service';
+import { ErrorHandlingService } from '../../../core/services/error-handling.service';
+import { GithubService } from '../../../core/services/github.service';
+import { IssueService } from '../../../core/services/issue.service';
+import { PhaseService } from '../../../core/services/phase.service';
+import { UserService } from '../../../core/services/user.service';
+import { CommentEditorComponent } from '../../comment-editor/comment-editor.component';
+import { SUBMIT_BUTTON_TEXT } from '../view-issue.component';
 
 @Component({
   selector: 'app-issue-dispute',

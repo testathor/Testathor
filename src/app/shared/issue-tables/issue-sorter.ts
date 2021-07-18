@@ -1,5 +1,5 @@
-import { Issue, ISSUE_TYPE_ORDER, SEVERITY_ORDER } from '../../core/models/issue.model';
 import { MatSort } from '@angular/material';
+import { Issue, ISSUE_TYPE_ORDER, SEVERITY_ORDER } from '../../core/models/issue.model';
 
 export function getSortedData(sort: MatSort, data: Issue[]): Issue[] {
   if (!sort.active) {

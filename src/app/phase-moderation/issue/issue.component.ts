@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IssueService } from '../../core/services/issue.service';
-import { UserService } from '../../core/services/user.service';
-import { ViewIssueComponent, ISSUE_COMPONENTS } from '../../shared/view-issue/view-issue.component';
 import { PermissionService } from '../../core/services/permission.service';
+import { UserService } from '../../core/services/user.service';
+import { ISSUE_COMPONENTS, ViewIssueComponent } from '../../shared/view-issue/view-issue.component';
 
 @Component({
   selector: 'app-issue',

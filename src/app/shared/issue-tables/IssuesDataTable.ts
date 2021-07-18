@@ -1,12 +1,11 @@
-import { BehaviorSubject, merge, Observable, Subscription } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
-import { IssueService } from '../../core/services/issue.service';
-import { Issue, ISSUE_TYPE_ORDER, SEVERITY_ORDER } from '../../core/models/issue.model';
 import { MatPaginator, MatSort } from '@angular/material';
-import { delay, flatMap, map, startWith, tap } from 'rxjs/operators';
-import { ErrorHandlingService } from '../../core/services/error-handling.service';
-import { getSortedData } from './issue-sorter';
+import { BehaviorSubject, merge, Observable, Subscription } from 'rxjs';
+import { flatMap, map } from 'rxjs/operators';
+import { Issue } from '../../core/models/issue.model';
+import { IssueService } from '../../core/services/issue.service';
 import { paginateData } from './issue-paginator';
+import { getSortedData } from './issue-sorter';
 import { applySearchFilter } from './search-filter';
 
 export class IssuesDataTable extends DataSource<Issue> {
@@ -17,7 +16,7 @@ export class IssuesDataTable extends DataSource<Issue> {
 
   public isLoading$ = this.issueService.isLoading.asObservable();
 
-  constructor(private issueService: IssueService, private errorHandlingService: ErrorHandlingService, private sort: MatSort,
+  constructor(private issueService: IssueService, private sort: MatSort,
               private paginator: MatPaginator, private displayedColumn: string[],
               private defaultFilter?: (issue: Issue) => boolean) {
     super();

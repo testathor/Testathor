@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MarkdownModule } from 'ngx-markdown';
 import { CommentEditorModule } from '../../comment-editor/comment-editor.module';
-import { SharedModule } from '../../shared.module';
 import { IssueComponentsModule } from '../../issue/issue-components.module';
 import { LabelDropdownModule } from '../../label-dropdown/label-dropdown.module';
-import { MarkdownModule } from 'ngx-markdown';
+import { SharedModule } from '../../shared.module';
 import { IssueDisputeComponent } from './issue-dispute.component';
 
 @NgModule({

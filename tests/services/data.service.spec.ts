@@ -2,7 +2,7 @@ import { of } from 'rxjs';
 import { DataService } from '../../src/app/core/services/data.service';
 import { GithubService } from '../../src/app/core/services/github.service';
 import { autoSpy } from '../auto-spy';
-import { csvString, jsonData, dataFileTeamStructure } from '../constants/data.constants';
+import { csvString, dataFileTeamStructure, jsonData } from '../constants/data.constants';
 
 describe('DataService', () => {
   describe('.getDataFile()', () => {

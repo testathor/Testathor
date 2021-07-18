@@ -1,5 +1,5 @@
-import { GithubResponse } from '../github-response.model';
 import { GithubIssue } from '../github-issue.model';
+import { GithubResponse } from '../github-response.model';
 
 /**
  * A model that is used to manage the cache of multiple list of issues paginated by pages.

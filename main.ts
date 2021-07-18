@@ -1,9 +1,9 @@
-import { app, BrowserWindow, screen, Menu, nativeTheme, MenuItemConstructorOptions, ipcMain, shell } from 'electron';
+import { app, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions, nativeTheme, screen, shell } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
-import { createMenuOptions, createContextMenu } from './electron-utils/menu-bar';
-import { isDeveloperMode, isLinuxOs, isMacOs, appTitle } from './electron-utils/supporting-logic';
+import { createContextMenu, createMenuOptions } from './electron-utils/menu-bar';
 import { getAccessToken } from './electron-utils/oauth';
+import { appTitle, isDeveloperMode, isLinuxOs, isMacOs } from './electron-utils/supporting-logic';
 
 const Logger = require('electron-log');
 const ICON_PATH = path.join(__dirname, 'dist/favicon.512x512.png');

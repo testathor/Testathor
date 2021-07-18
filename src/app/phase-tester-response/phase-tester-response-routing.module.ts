@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PhaseTesterResponseComponent } from './phase-tester-response.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
-import { IssueComponent } from './issue/issue.component';
 import { CanDeactivateIssueGuard } from '../core/guards/can-deactivate-issue-guard.service';
+import { IssueComponent } from './issue/issue.component';
+import { PhaseTesterResponseComponent } from './phase-tester-response.component';
 
 const routes: Routes = [
   { path: 'phaseTesterResponse', component: PhaseTesterResponseComponent, canActivate: [AuthGuard]},

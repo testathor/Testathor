@@ -1,11 +1,11 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LabelService } from '../../../../src/app/core/services/label.service';
 import {
-  LabelDropdownComponent,
   BLACK_TEXT_CLASS,
+  LabelDropdownComponent,
   WHITE_TEXT_CLASS
 } from '../../../../src/app/shared/label-dropdown/label-dropdown.component';
-import { LabelService } from '../../../../src/app/core/services/label.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SEVERITY_LABELS, COLOR_WHITE, SEVERITY } from '../../../constants/label.constants';
+import { COLOR_WHITE, SEVERITY, SEVERITY_LABELS } from '../../../constants/label.constants';
 
 describe('LabelDropdownComponent', () => {
   let labelDropdownComponent: LabelDropdownComponent;

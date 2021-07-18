@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
-import { GithubService } from '../github.service';
-import { catchError, exhaustMap, flatMap, map } from 'rxjs/operators';
-import { BehaviorSubject, forkJoin, timer, Observable, of, Subscription } from 'rxjs';
+import { BehaviorSubject, forkJoin, Observable, of, Subscription } from 'rxjs';
+import { catchError, flatMap, map } from 'rxjs/operators';
+import { generateIssueWithRandomData } from '../../../../../tests/constants/githubissue.constants';
+import { IssueComment } from '../../models/comment.model';
+import { GithubComment } from '../../models/github/github-comment.model';
+import { GithubIssue } from '../../models/github/github-issue.model';
+import { GithubLabel } from '../../models/github/github-label.model';
+import { HiddenData } from '../../models/hidden-data.model';
+import { IssueDispute } from '../../models/issue-dispute.model';
 import {
   Issue,
   Issues,
   STATUS,
 } from '../../models/issue.model';
-import { UserService } from '../user.service';
-import { PhaseService } from '../phase.service';
 import { Phase } from '../../models/phase.model';
-import { PermissionService } from '../permission.service';
 import { DataService } from '../data.service';
-import { ErrorHandlingService } from '../error-handling.service';
-import { IssueDispute } from '../../models/issue-dispute.model';
-import { GithubIssue } from '../../models/github/github-issue.model';
-import { IssueComment } from '../../models/comment.model';
-import { GithubLabel } from '../../models/github/github-label.model';
-import { GithubComment } from '../../models/github/github-comment.model';
-import { HiddenData } from '../../models/hidden-data.model';
-import { generateIssueWithRandomData } from '../../../../../tests/constants/githubissue.constants';
+import { GithubService } from '../github.service';
+import { PhaseService } from '../phase.service';
 
 @Injectable({
   providedIn: 'root',
@@ -37,10 +34,7 @@ export class MockIssueService {
   public isLoading = new BehaviorSubject<boolean>(false);
 
   constructor(private githubService: GithubService,
-              private userService: UserService,
               private phaseService: PhaseService,
-              private permissionService: PermissionService,
-              private errorHandlingService: ErrorHandlingService,
               private dataService: DataService) {
     this.issues$ = new BehaviorSubject(new Array<Issue>());
   }

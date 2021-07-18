@@ -1,7 +1,7 @@
-import { jsonData, USER_JUNWEI, USER_Q, USER_SHUMING, USER_WITH_TWO_ROLES } from '../constants/data.constants';
-import { UserService } from '../../src/app/core/services/user.service';
-import { User, UserRole } from '../../src/app/core/models/user.model';
 import { of } from 'rxjs';
+import { User } from '../../src/app/core/models/user.model';
+import { UserService } from '../../src/app/core/services/user.service';
+import { jsonData, USER_JUNWEI, USER_Q, USER_SHUMING, USER_WITH_TWO_ROLES } from '../constants/data.constants';
 
 let dataService: any;
 

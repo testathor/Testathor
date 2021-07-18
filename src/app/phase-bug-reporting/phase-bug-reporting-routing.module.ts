@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
-import { PhaseBugReportingComponent } from './phase-bug-reporting.component';
-import { NewIssueComponent } from './new-issue/new-issue.component';
-import { IssueComponent } from './issue/issue.component';
 import { CanDeactivateIssueGuard } from '../core/guards/can-deactivate-issue-guard.service';
+import { IssueComponent } from './issue/issue.component';
+import { NewIssueComponent } from './new-issue/new-issue.component';
+import { PhaseBugReportingComponent } from './phase-bug-reporting.component';
 
 const routes: Routes = [
   { path: 'phaseBugReporting', component: PhaseBugReportingComponent, canActivate: [AuthGuard] },

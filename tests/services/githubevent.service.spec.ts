@@ -1,6 +1,6 @@
-import { GithubEventService } from '../../src/app/core/services/githubevent.service';
 import { of } from 'rxjs';
-import { EVENTS, ADD_LABEL_EVENT, CHANGE_TITLE_EVENT } from '../constants/githubevent.constants';
+import { GithubEventService } from '../../src/app/core/services/githubevent.service';
+import { ADD_LABEL_EVENT, CHANGE_TITLE_EVENT, EVENTS } from '../constants/githubevent.constants';
 
 let githubService: any;
 let issueService: any;

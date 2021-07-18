@@ -1,10 +1,10 @@
-import { DescriptionComponent } from '../../../../../src/app/shared/issue/description/description.component';
 import { FormBuilder, NgForm } from '@angular/forms';
-import { PhaseService } from '../../../../../src/app/core/services/phase.service';
-import { Phase } from '../../../../../src/app/core/models/phase.model';
-import { Issue } from '../../../../../src/app/core/models/issue.model';
-import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../../constants/githubissue.constants';
 import { of } from 'rxjs';
+import { Issue } from '../../../../../src/app/core/models/issue.model';
+import { Phase } from '../../../../../src/app/core/models/phase.model';
+import { PhaseService } from '../../../../../src/app/core/services/phase.service';
+import { DescriptionComponent } from '../../../../../src/app/shared/issue/description/description.component';
+import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../../constants/githubissue.constants';
 
 describe('DescriptionComponent', () => {
   let descriptionComponent: DescriptionComponent;
@@ -17,7 +17,7 @@ describe('DescriptionComponent', () => {
 
   beforeEach(() => {
     formBuilder = new FormBuilder();
-    phaseService = new PhaseService(null, null, null, null, null);
+    phaseService = new PhaseService(null, null, null);
     phaseService.currentPhase = Phase.phaseTeamResponse;
 
     dialog = jasmine.createSpyObj('MatDialog', ['open']);

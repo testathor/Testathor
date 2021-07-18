@@ -1,4 +1,4 @@
-import { Profile, isValidProfile } from '../../src/app/core/models/profile.model';
+import { isValidProfile, Profile } from '../../src/app/core/models/profile.model';
 
 describe('isValidProfile', () => {
   it('returns false for a profile with no encodedText field', () => {

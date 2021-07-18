@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { GithubService } from './github.service';
-import { uuid } from '../../shared/lib/uuid';
 import { throwError } from 'rxjs';
+import { uuid } from '../../shared/lib/uuid';
+import { GithubService } from './github.service';
 
 const SUPPORTED_VIDEO_FILE_TYPES = ['mp4', 'mov'];
 export const SUPPORTED_FILE_TYPES = ['gif', 'jpeg', 'jpg', 'png', 'docx', 'gz', 'log', 'pdf', 'pptx', 'txt', 'xlsx', 'zip',

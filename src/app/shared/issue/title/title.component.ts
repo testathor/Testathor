@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IssueService } from '../../../core/services/issue.service';
-import { Issue } from '../../../core/models/issue.model';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ErrorHandlingService } from '../../../core/services/error-handling.service';
 import { finalize } from 'rxjs/operators';
+import { Issue } from '../../../core/models/issue.model';
+import { ErrorHandlingService } from '../../../core/services/error-handling.service';
+import { IssueService } from '../../../core/services/issue.service';
 import { PermissionService } from '../../../core/services/permission.service';
 import { PhaseService } from '../../../core/services/phase.service';
 

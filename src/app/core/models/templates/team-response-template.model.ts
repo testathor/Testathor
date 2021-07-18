@@ -1,8 +1,8 @@
-import { DuplicateOfSection } from './sections/duplicate-of-section.model';
-import { Header, Template } from './template.model';
-import { Section } from './sections/section.model';
-import { GithubComment } from '../github/github-comment.model';
 import { IssueComment } from '../comment.model';
+import { GithubComment } from '../github/github-comment.model';
+import { DuplicateOfSection } from './sections/duplicate-of-section.model';
+import { Section } from './sections/section.model';
+import { Header, Template } from './template.model';
 
 export const TeamResponseHeaders = {
   teamResponse: new Header('Team\'s Response', 1),

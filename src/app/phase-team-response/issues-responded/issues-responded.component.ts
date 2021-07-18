@@ -1,10 +1,10 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { IssueService } from '../../core/services/issue.service';
 import { Issue, STATUS } from '../../core/models/issue.model';
-import { UserService } from '../../core/services/user.service';
 import { UserRole } from '../../core/models/user.model';
-import { ACTION_BUTTONS, IssueTablesComponent } from '../../shared/issue-tables/issue-tables.component';
+import { IssueService } from '../../core/services/issue.service';
+import { UserService } from '../../core/services/user.service';
 import { TABLE_COLUMNS } from '../../shared/issue-tables/issue-tables-columns';
+import { ACTION_BUTTONS, IssueTablesComponent } from '../../shared/issue-tables/issue-tables.component';
 
 @Component({
   selector: 'app-issues-responded',

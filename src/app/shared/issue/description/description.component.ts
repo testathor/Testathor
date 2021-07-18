@@ -1,16 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
-import { Issue } from '../../../core/models/issue.model';
-import { IssueService } from '../../../core/services/issue.service';
-import { ErrorHandlingService } from '../../../core/services/error-handling.service';
-import { finalize, map, flatMap } from 'rxjs/operators';
-import { PermissionService } from '../../../core/services/permission.service';
-import { SUBMIT_BUTTON_TEXT } from '../../view-issue/view-issue.component';
-import { throwError } from 'rxjs';
-import { Conflict } from '../../../core/models/conflict/conflict.model';
 import { MatDialog } from '@angular/material';
-import { ConflictDialogComponent } from '../conflict-dialog/conflict-dialog.component';
+import { throwError } from 'rxjs';
+import { finalize, flatMap, map } from 'rxjs/operators';
+import { Conflict } from '../../../core/models/conflict/conflict.model';
+import { Issue } from '../../../core/models/issue.model';
+import { ErrorHandlingService } from '../../../core/services/error-handling.service';
+import { IssueService } from '../../../core/services/issue.service';
+import { PermissionService } from '../../../core/services/permission.service';
 import { PhaseService } from '../../../core/services/phase.service';
+import { SUBMIT_BUTTON_TEXT } from '../../view-issue/view-issue.component';
+import { ConflictDialogComponent } from '../conflict-dialog/conflict-dialog.component';
 
 @Component({
   selector: 'app-issue-description',

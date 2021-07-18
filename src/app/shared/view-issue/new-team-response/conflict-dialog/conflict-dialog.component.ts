@@ -1,9 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatTabChangeEvent } from '@angular/material';
-import { Issue } from '../../../../core/models/issue.model';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { LabelService } from '../../../../core/services/label.service';
+import { Issue } from '../../../../core/models/issue.model';
 import { IssueService } from '../../../../core/services/issue.service';
+import { LabelService } from '../../../../core/services/label.service';
 import { escapeHTML, replaceNewlinesWithBreakLines } from '../../../lib/html';
 
 @Component({
@@ -23,7 +23,7 @@ export class ConflictDialogComponent {
     public labelService: LabelService,
     public issueService: IssueService) {
 
-    this.updatedHtml = sanitizer.bypassSecurityTrustHtml(replaceNewlinesWithBreakLines(escapeHTML(data.teamResponse)));
+    this.updatedHtml = this.sanitizer.bypassSecurityTrustHtml(replaceNewlinesWithBreakLines(escapeHTML(data.teamResponse)));
     this.isReady = true;
   }
 

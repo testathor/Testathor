@@ -1,23 +1,22 @@
 import { of } from 'rxjs';
 
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { PhaseService } from '../../../../../src/app/core/services/phase.service';
-import { User, UserRole } from '../../../../../src/app/core/models/user.model';
-import { AssigneeComponent } from '../../../../../src/app/shared/issue/assignee/assignee.component';
-import { ErrorHandlingService } from '../../../../../src/app/core/services/error-handling.service';
-import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../../constants/githubissue.constants';
 import { Issue } from '../../../../../src/app/core/models/issue.model';
-import { IssueService } from '../../../../../src/app/core/services/issue.service';
-import { MaterialModule } from '../../../../../src/app/shared/material.module';
-import { PermissionService } from '../../../../../src/app/core/services/permission.service';
-import { Team } from '../../../../../src/app/core/models/team.model';
-import { UserService } from '../../../../../src/app/core/services/user.service';
 import { Phase } from '../../../../../src/app/core/models/phase.model';
+import { Team } from '../../../../../src/app/core/models/team.model';
+import { User, UserRole } from '../../../../../src/app/core/models/user.model';
+import { ErrorHandlingService } from '../../../../../src/app/core/services/error-handling.service';
+import { IssueService } from '../../../../../src/app/core/services/issue.service';
+import { PermissionService } from '../../../../../src/app/core/services/permission.service';
+import { PhaseService } from '../../../../../src/app/core/services/phase.service';
+import { AssigneeComponent } from '../../../../../src/app/shared/issue/assignee/assignee.component';
+import { MaterialModule } from '../../../../../src/app/shared/material.module';
+import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../../constants/githubissue.constants';
 
 describe('AssigneeComponent', () => {
   let component: AssigneeComponent;

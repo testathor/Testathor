@@ -1,8 +1,8 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { ElectronService } from './core/services/electron.service';
-import { AppConfig } from '../environments/environment';
 import { fromEvent, merge, Observable, of } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
+import { AppConfig } from '../environments/environment';
+import { ElectronService } from './core/services/electron.service';
 import { LoggingService } from './core/services/logging.service';
 
 @Component({

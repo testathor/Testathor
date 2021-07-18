@@ -2,9 +2,9 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Conflict } from '../../../../core/models/conflict/conflict.model';
-import { LabelService } from '../../../../core/services/label.service';
-import { IssueService } from '../../../../core/services/issue.service';
 import { TesterResponse } from '../../../../core/models/tester-response.model';
+import { IssueService } from '../../../../core/services/issue.service';
+import { LabelService } from '../../../../core/services/label.service';
 
 
 export interface TesterResponseConflictData {
@@ -36,8 +36,8 @@ export class ConflictDialogComponent {
     for (let i = 0; i < data.updatedResponses.length; i++) {
       this.conflicts.push(new Conflict(data.outdatedResponses[i].getDisagreementWithoutDefaultResponse(),
         data.updatedResponses[i].getDisagreementWithoutDefaultResponse()));
-      this.diffHtmls.push(sanitizer.bypassSecurityTrustHtml(this.conflicts[i].getHtmlDiffString()));
-      this.updatedHtmls.push(sanitizer.bypassSecurityTrustHtml(this.conflicts[i].getHtmlUpdatedString()));
+      this.diffHtmls.push(this.sanitizer.bypassSecurityTrustHtml(this.conflicts[i].getHtmlDiffString()));
+      this.updatedHtmls.push(this.sanitizer.bypassSecurityTrustHtml(this.conflicts[i].getHtmlUpdatedString()));
       this.panelOpenStates.push(data.outdatedResponses[i].compareTo(data.updatedResponses[i]) !== 0);
     }
 

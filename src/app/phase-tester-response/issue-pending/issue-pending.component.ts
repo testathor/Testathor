@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ACTION_BUTTONS, IssueTablesComponent } from '../../shared/issue-tables/issue-tables.component';
-import { TABLE_COLUMNS } from '../../shared/issue-tables/issue-tables-columns';
 import { Issue, STATUS } from '../../core/models/issue.model';
+import { TABLE_COLUMNS } from '../../shared/issue-tables/issue-tables-columns';
+import { ACTION_BUTTONS, IssueTablesComponent } from '../../shared/issue-tables/issue-tables.component';
 
 @Component({
   selector: 'app-issue-pending',

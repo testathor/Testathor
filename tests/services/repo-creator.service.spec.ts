@@ -1,12 +1,12 @@
+import { of } from 'rxjs';
+import { Phase } from '../../src/app/core/models/phase.model';
 import {
   BUG_REPORTING_INVALID_ROLE,
   CURRENT_PHASE_REPO_CLOSED,
   MISSING_REQUIRED_REPO,
   RepoCreatorService
 } from '../../src/app/core/services/repo-creator.service';
-import { of } from 'rxjs';
 import { UserService } from '../../src/app/core/services/user.service';
-import { Phase } from '../../src/app/core/models/phase.model';
 import { USER_JUNWEI, USER_Q } from '../constants/data.constants';
 
 const PHASE_OWNER = 'CATcher-org';

@@ -1,9 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { GeneralMessageErrorComponent } from '../../shared/error-toasters/general-message-error/general-message-error.component';
-import { FormErrorComponent } from '../../shared/error-toasters/form-error/form-error.component';
-import { HttpErrorResponse } from '@angular/common/http';
 import { RequestError } from '@octokit/request-error';
+import { FormErrorComponent } from '../../shared/error-toasters/form-error/form-error.component';
+import { GeneralMessageErrorComponent } from '../../shared/error-toasters/general-message-error/general-message-error.component';
 import { LoggingService } from './logging.service';
 
 export const ERRORCODE_NOT_FOUND = 404;

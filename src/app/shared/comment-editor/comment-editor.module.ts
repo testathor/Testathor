@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared.module';
 import { MarkdownModule } from 'ngx-markdown';
+import { SharedModule } from '../shared.module';
 import { CommentEditorComponent } from './comment-editor.component';
 
 @NgModule({

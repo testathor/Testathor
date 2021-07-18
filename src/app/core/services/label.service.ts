@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { GithubService } from './github.service';
-import { map, flatMap } from 'rxjs/operators';
-import { Label } from '../models/label.model';
 import { Observable, pipe, UnaryFunction } from 'rxjs';
+import { flatMap, map } from 'rxjs/operators';
+import { Label } from '../models/label.model';
+import { GithubService } from './github.service';
 
 /* The threshold to decide if color is dark or light.
 A higher threshold value will result in more colors determined to be "dark".

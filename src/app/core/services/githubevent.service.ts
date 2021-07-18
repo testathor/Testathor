@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { GithubService } from './github.service';
 import { Observable, of } from 'rxjs';
-import { map, flatMap } from 'rxjs/operators';
+import { flatMap, map } from 'rxjs/operators';
+import { GithubService } from './github.service';
 import { IssueService } from './issue.service';
 
 @Injectable({

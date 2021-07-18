@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRouteSnapshot, CanDeactivate, Router, RouterStateSnapshot } from '@angular/router';
+import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { UserConfirmationComponent } from './user-confirmation/user-confirmation.component';
+import { ActivatedRouteSnapshot, CanDeactivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { UserConfirmationComponent } from './user-confirmation/user-confirmation.component';
 
 @Injectable({
   providedIn: 'root'

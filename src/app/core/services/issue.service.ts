@@ -1,27 +1,25 @@
 import { Injectable } from '@angular/core';
-import { GithubService } from './github.service';
+import { BehaviorSubject, EMPTY, forkJoin, Observable, of, Subscription, timer } from 'rxjs';
 import { catchError, exhaustMap, finalize, flatMap, map } from 'rxjs/operators';
-import { BehaviorSubject, EMPTY, forkJoin, timer, Observable, of, Subscription } from 'rxjs';
+import { IssueComment } from '../models/comment.model';
+import { GithubComment } from '../models/github/github-comment.model';
+import RestGithubIssueFilter from '../models/github/github-issue-filter.model';
+import { GithubIssue } from '../models/github/github-issue.model';
+import { GithubLabel } from '../models/github/github-label.model';
+import { HiddenData } from '../models/hidden-data.model';
+import { IssueDispute } from '../models/issue-dispute.model';
 import {
   Issue,
   Issues,
   IssuesFilter, STATUS,
 } from '../models/issue.model';
-import { UserService } from './user.service';
-import { PhaseService } from './phase.service';
 import { Phase } from '../models/phase.model';
-import { PermissionService } from './permission.service';
-import { DataService } from './data.service';
-import { ErrorHandlingService } from './error-handling.service';
-import { IssueDispute } from '../models/issue-dispute.model';
-import { GithubIssue } from '../models/github/github-issue.model';
-import { IssueComment } from '../models/comment.model';
-import { GithubLabel } from '../models/github/github-label.model';
-import RestGithubIssueFilter from '../models/github/github-issue-filter.model';
-import { GithubComment } from '../models/github/github-comment.model';
-import { HiddenData } from '../models/hidden-data.model';
-import { ElectronService } from './electron.service';
 import { appVersion } from './application.service';
+import { DataService } from './data.service';
+import { ElectronService } from './electron.service';
+import { GithubService } from './github.service';
+import { PhaseService } from './phase.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -41,8 +39,6 @@ export class IssueService {
   constructor(private githubService: GithubService,
               private userService: UserService,
               private phaseService: PhaseService,
-              private permissionService: PermissionService,
-              private errorHandlingService: ErrorHandlingService,
               private electronService: ElectronService,
               private dataService: DataService) {
     this.issues$ = new BehaviorSubject(new Array<Issue>());

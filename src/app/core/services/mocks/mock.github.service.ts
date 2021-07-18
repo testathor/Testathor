@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { GithubUser } from '../../models/github-user.model';
 import { AppConfig } from '../../../../environments/environment.test';
-import { Phase } from '../../models/phase.model';
-import { SessionData } from '../../models/session.model';
-import { GithubRelease } from '../../models/github/github.release';
-import { LabelService } from '../label.service';
-import { Label } from '../../models/label.model';
+import { GithubUser } from '../../models/github-user.model';
 import { GithubIssue } from '../../models/github/github-issue.model';
 import { GithubLabel } from '../../models/github/github-label.model';
+import { GithubRelease } from '../../models/github/github.release';
+import { Label } from '../../models/label.model';
+import { Phase } from '../../models/phase.model';
 import { Profile } from '../../models/profile.model';
+import { SessionData } from '../../models/session.model';
+import { LabelService } from '../label.service';
 
 const Octokit = require('@octokit/rest');
-const CATCHER_ORG = 'CATcher-org';
-const CATCHER_REPO = 'CATcher';
 
 let ORG_NAME = '';
 let MOD_ORG = '';

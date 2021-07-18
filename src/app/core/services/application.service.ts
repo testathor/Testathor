@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { GithubService } from './github.service';
-import { GithubRelease } from '../models/github/github.release';
 import { map } from 'rxjs/operators';
 import { AppConfig } from '../../../environments/environment';
+import { GithubRelease } from '../models/github/github.release';
+import { GithubService } from './github.service';
 
 export const appVersion = AppConfig.version;
 

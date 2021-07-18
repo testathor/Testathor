@@ -1,8 +1,8 @@
-import { IssuePendingComponent } from '../../../../src/app/phase-tester-response/issue-pending/issue-pending.component';
-import { Issue, STATUS } from '../../../../src/app/core/models/issue.model';
-import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../constants/githubissue.constants';
-import { Team } from '../../../../src/app/core/models/team.model';
 import { IssueComment } from '../../../../src/app/core/models/comment.model';
+import { Issue, STATUS } from '../../../../src/app/core/models/issue.model';
+import { Team } from '../../../../src/app/core/models/team.model';
+import { IssuePendingComponent } from '../../../../src/app/phase-tester-response/issue-pending/issue-pending.component';
+import { ISSUE_WITH_EMPTY_DESCRIPTION } from '../../../constants/githubissue.constants';
 
 describe('IssuePendingComponent', () => {
   describe('.ngOnInit()', () => {

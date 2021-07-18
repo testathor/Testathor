@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PermissionService } from '../core/services/permission.service';
 import { UserService } from '../core/services/user.service';
-import { ACTION_BUTTONS, IssueTablesComponent } from '../shared/issue-tables/issue-tables.component';
 import { TABLE_COLUMNS } from '../shared/issue-tables/issue-tables-columns';
+import { ACTION_BUTTONS, IssueTablesComponent } from '../shared/issue-tables/issue-tables.component';
 
 @Component({
   selector: 'app-phase-bug-reporting',

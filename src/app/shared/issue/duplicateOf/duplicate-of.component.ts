@@ -7,14 +7,14 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
+import { MatCheckbox, MatSelect, MatSelectChange } from '@angular/material';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Issue, SEVERITY_ORDER } from '../../../core/models/issue.model';
 import {
   ErrorHandlingService
 } from '../../../core/services/error-handling.service';
-import { Issue, SEVERITY_ORDER } from '../../../core/models/issue.model';
 import { IssueService } from '../../../core/services/issue.service';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { MatCheckbox, MatSelect, MatSelectChange } from '@angular/material';
 import { PermissionService } from '../../../core/services/permission.service';
 import { PhaseService } from '../../../core/services/phase.service';
 

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { GithubService } from './github.service';
-import { User, UserRole } from '../models/user.model';
-import { filter, map, throwIfEmpty } from 'rxjs/operators';
-import { Team } from '../models/team.model';
 import { Observable } from 'rxjs';
-import { DataService } from './data.service';
+import { filter, map, throwIfEmpty } from 'rxjs/operators';
 import { GithubUser } from '../models/github-user.model';
+import { Team } from '../models/team.model';
+import { User, UserRole } from '../models/user.model';
+import { DataService } from './data.service';
+import { GithubService } from './github.service';
 
 @Injectable({
   providedIn: 'root',
